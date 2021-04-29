@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<entity-mappings ptype="MONOLITH" ppkg="modelsource" epkg="domain" v="5.4.3" rws="_161968001838328" cws="_161968001838328" persistenceUnitName="DEFAULT_PU" sm="false" xs="false" id="_161968001838327" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <entity compositePrimaryKeyClass="TeacherPK" abs="false" class="Teacher" v="true" jbn="false" xre="false" m="false" rootElement="_161968001838327" id="_161968002709229">
+        <ath>Me</ath>
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="name" id="_161968006762235">
+                <xwm/>
+                <xm/>
+            </basic>
+            <many-to-many own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_161968003069632" connected-attribute-id="_161968016983939" v="true" xvt="" name="courses" id="_161968016983138">
+                <xwm/>
+                <xm/>
+            </many-to-many>
+            <id attribute-type="int" v="true" xvt="" name="id" id="_161968002709430">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <nq e="false" name="Teacher.findAll">
+            <query>Select e from Teacher e</query>
+        </nq>
+        <nq e="false" name="Teacher.findByName">
+            <query>Select t from Teacher t where t.name=:name</query>
+        </nq>
+    </entity>
+    <entity compositePrimaryKeyClass="CoursePK" abs="false" class="Course" v="true" jbn="false" xre="false" m="false" rootElement="_161968001838327" id="_161968003069632">
+        <ath>Me</ath>
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="name" id="_161968007522536">
+                <xwm/>
+                <xm/>
+            </basic>
+            <many-to-many collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_161968002709229" connected-attribute-id="_161968016983138" v="true" xvt="" name="teachers" id="_161968016983939">
+                <xwm/>
+                <xm/>
+            </many-to-many>
+            <id attribute-type="int" v="true" xvt="" name="id" id="_161968003069733">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <nq e="false" name="Course.findAll">
+            <query>Select e from Course e</query>
+        </nq>
+        <nq e="false" name="Course.findByName">
+            <query>Select c from Course c where c.name=:name</query>
+        </nq>
+    </entity>
+    <wsl>
+        <ws n="Main" id="_161968001838328">
+            <i ref="_161968002709229" x="137" y="186"/>
+            <i ref="_161968003069632" x="423" y="186"/>
+        </ws>
+    </wsl>
+</entity-mappings>
