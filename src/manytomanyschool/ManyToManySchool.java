@@ -106,11 +106,11 @@ public class ManyToManySchool {
                 showAllCoursesOfATeacher();
                 break;
             case 15:
-//                showAllTeachersOfACourse();
+                showAllTeachersOfACourse();
                 break;
             case 16:
                 addNewTeacherToExistingCourse();
-
+                break; // Glömde break här...
             case 0:
                 loop = false;
                 TeacherDAO.emf.close();               
@@ -267,6 +267,16 @@ public class ManyToManySchool {
         String name = sc.nextLine();
         
         CourseMethods.addNewTeacherToExistingCourse(courseID, name);
+    }
+
+    private static void showAllTeachersOfACourse() {
+        
+        
+        System.out.println("ID of Course:");
+        int courseID = sc.nextInt();
+        sc.nextLine();
+        
+        CourseMethods.showAllTeachersOfACourse(courseID);
     }
 
 }

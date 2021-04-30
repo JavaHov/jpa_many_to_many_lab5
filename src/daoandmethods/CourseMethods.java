@@ -46,5 +46,10 @@ public class CourseMethods {
         
         courseDAO.addNewTeacherToExistingCourse(courseID, name);
     }
+
+    public static void showAllTeachersOfACourse(int courseID) {
+        
+        courseDAO.showAllTeachersOfACourse(courseID);
+    }
     
 }

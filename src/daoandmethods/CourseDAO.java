@@ -115,11 +115,25 @@ public class CourseDAO {
         Course course = em.find(Course.class, courseID);
         
         Teacher teacher = new Teacher(name);
+        teacher.addCourse(course);// Addade course till teacher här...
         
         em.getTransaction().begin();
-        course.addTeacher(teacher);
+        em.persist(teacher); // Persistar teacher här...
         em.getTransaction().commit();
         em.close();        
+    }
+
+    void showAllTeachersOfACourse(int courseID) {
+        
+        EntityManager em = emf.createEntityManager();
+        
+        Course course = em.find(Course.class, courseID);
+        
+        List<Teacher> teachers = course.getTeachers();
+        
+        System.out.println("Teachers in " + course);
+        
+        teachers.stream().map(t -> t.getName()).forEach(n -> System.out.println(n));
     }
     
 }
